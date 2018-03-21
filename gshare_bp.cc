@@ -32,11 +32,11 @@ GSHARE_BP::lookup(Addr branch_addr, void * &bp_history)
 		
 	local_prediction = localCtrs[gshare].read() > localThreshold;
 		
-	if (local_prediction) { //from updateGlobalHistTaken();
+	if (local_prediction) { //Taken;
 		globalHistory = (globalHistory << 1) | 1;
 		globalHistory = globalHistory & historyRegisterMask;
 		return true;
-	} else {  //from updateGlobalHistNotTaken();
+	} else {  //NotTaken;
 		globalHistory = (globalHistory << 1);
 		globalHistory = globalHistory & historyRegisterMask;
 		return false;
