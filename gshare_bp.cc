@@ -30,7 +30,7 @@ GSHARE_BP::lookup(Addr branch_addr, void * &bp_history)
 	gshare =  ((branch_addr >> instShiftAmt) ^ globalHistory) & historyRegisterMask;
 	assert(gshare < localPredictorSize);
 		
-    local_prediction = localCtrs[gshare].read() > localThreshold;
+	local_prediction = localCtrs[gshare].read() > localThreshold;
 		
 	if (local_prediction) { //from updateGlobalHistTaken();
 		globalHistory = (globalHistory << 1) | 1;
